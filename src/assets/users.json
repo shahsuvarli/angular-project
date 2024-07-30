@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "avatar": "https://gravatar.com/avatar/9b0fb84281d5038a1ac0019c16e2435f?s=400&d=robohash&r=x"
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "avatar": "https://gravatar.com/avatar/62f02bc76a80e17b3f445476f753d824?s=200&d=robohash&r=x"
+  },
+  {
+    "id": 3,
+    "name": "Michael Johnson",
+    "avatar": "https://gravatar.com/avatar/48c683d6537d8407e6601bb81b46e535?s=400&d=robohash&r=x"
+  },
+  {
+    "id": 4,
+    "name": "Emily Davis",
+    "avatar": "https://gravatar.com/avatar/b8115b5ec7be46bf77f808ee347d1f3f?s=400&d=robohash&r=x"
+  },
+  {
+    "id": 5,
+    "name": "David Wilson",
+    "avatar": "https://gravatar.com/avatar/b54bce8def7cac675bab1d72b0c242c5?s=400&d=robohash&r=x"
+  },
+  {
+    "id": 6,
+    "name": "Sarah Anderson",
+    "avatar": "https://gravatar.com/avatar/95e27f7b8471d21bb1a05cf411217cc0?s=400&d=robohash&r=x"
+  },
+  {
+    "id": 7,
+    "name": "Daniel Martinez",
+    "avatar": "https://gravatar.com/avatar/627225deb38cf90e624493bf79183d3e?s=400&d=robohash&r=x"
+  },
+  {
+    "id": 8,
+    "name": "Olivia Taylor",
+    "avatar": "https://gravatar.com/avatar/8dd7587e7c021b121ff534263273d3a8?s=400&d=robohash&r=x"
+  }
+]
