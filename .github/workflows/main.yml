@@ -1,32 +1,40 @@
+# Sample text
 name: Angular Project CI/CD
 
 on:
-  issues:
-    types: ["opened"]
+  push:
+    branches:
+      - main
 
 jobs:
-  build:
+  job1:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout the code
+      - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Add a label to the issues
-        uses: actions/github-script@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            github.issues.addLabels({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              labels: ['triage']
-            })
-      - name: Comment on the issue
-        run: |
-          curl -X POST \
-          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-          -H "Accept: application/vnd.github.v3+json" \
-          https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.issue.number }}/comments \
-          -d '{"body":"Thank you for opening this issue! We will look into it."}'
+          node-version: "14"
+      - name: Install Dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Deploy
+        run: npm run deploy
+
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+      - name: Install Dependencies
+        run: npm install
+      - name: Test
+        run: npm run test
+      - name: Lint
+        run: npm run lint
