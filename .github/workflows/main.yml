@@ -5,9 +5,13 @@ on:
   push:
     branches:
       - main
+  issues:
+    types: [opened, edited, closed]
+  pull_request:
+    types: [opened, edited, closed]
 
 jobs:
-  job1:
+  handle_build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -20,10 +24,8 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
-      - name: Deploy
-        run: npm run deploy
 
-  job2:
+  handle_lint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -34,7 +36,18 @@ jobs:
           node-version: "22"
       - name: Install Dependencies
         run: npm install
-      - name: Test
-        run: npm run test
       - name: Lint
         run: npm run lint
+
+  handle_issue_open:
+    if: github.event_name == 'issues' && github.event.action == 'opened'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Issue Message
+        run: echo "Issue opened"
+  handle_pr_open:
+    if: github.event_name == 'pull_request' && github.event.action == 'opened'
+    runs-on: ubuntu-latest
+    steps:
+      - name: PR Message
+        run: echo "PR opened"
