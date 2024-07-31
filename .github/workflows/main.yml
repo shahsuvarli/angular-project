@@ -15,7 +15,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "19"
+          node-version: "22"
       - name: Install Dependencies
         run: npm install
       - name: Build
@@ -31,7 +31,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "19"
+          node-version: "22"
       - name: Install Dependencies
         run: npm install
       - name: Test
